@@ -8,10 +8,29 @@
 plugins {
     // Apply the Java Gradle plugin development plugin to add support for developing Gradle plugins
     `java-gradle-plugin`
-
+    `maven-publish`
     // Apply the Kotlin JVM plugin to add support for Kotlin.
     alias(libs.plugins.jvm)
+    // TODO: cargar el plugin desde repositorio maven
+    id("com.cursosdedesarrollo.ejemplo") version "1.0.0"
+    //id("ejemplo.plugin.gradle.koltin.greeting") version "1.0.0"
+
 }
+
+group = "com.cursosdedesarrollo"
+version = "1.0.0"
+//
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "com.cursosdedesarrollo"
+            artifactId = "ejemplo"
+            version = "1.0.0"
+            from(components["kotlin"])
+        }
+    }
+}
+
 
 repositories {
     // Use Maven Central for resolving dependencies.
@@ -28,7 +47,7 @@ dependencies {
 gradlePlugin {
     // Define the plugin
     val greeting by plugins.creating {
-        id = "ejemplo.plugin.gradle.koltin.greeting"
+        id = "com.cursosdedesarrollo.ejemplo"
         implementationClass = "ejemplo.plugin.gradle.koltin.EjemploPluginGradleKoltinPlugin"
     }
 }

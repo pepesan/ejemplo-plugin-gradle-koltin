@@ -25,7 +25,7 @@ class EjemploPluginGradleKoltinPluginFunctionalTest {
         settingsFile.writeText("")
         buildFile.writeText("""
             plugins {
-                id('ejemplo.plugin.gradle.koltin.greeting')
+                id('com.cursosdedesarrollo.ejemplo')
             }
         """.trimIndent())
 
@@ -38,6 +38,6 @@ class EjemploPluginGradleKoltinPluginFunctionalTest {
         val result = runner.build()
 
         // Verify the result
-        assertTrue(result.output.contains("Hello from plugin 'ejemplo.plugin.gradle.koltin.greeting'"))
+        assertTrue(result.output.contains("Hello from plugin 'ejemplo.plugin'"))
     }
 }

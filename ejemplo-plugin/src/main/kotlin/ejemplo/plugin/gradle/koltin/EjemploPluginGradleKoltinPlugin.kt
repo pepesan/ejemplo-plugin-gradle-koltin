@@ -14,7 +14,7 @@ class EjemploPluginGradleKoltinPlugin: Plugin<Project> {
         // Register a task
         project.tasks.register("ejemplo-greeting") { task ->
             task.doLast {
-                println("Hello from plugin 'ejemplo.plugin.gradle.koltin.greeting'")
+                println("Hello from plugin 'ejemplo.plugin'")
             }
         }
     }

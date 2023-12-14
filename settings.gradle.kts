@@ -5,5 +5,13 @@
  * For more detailed information on multi-project builds, please refer to https://docs.gradle.org/8.5/userguide/building_swift_projects.html in the Gradle documentation.
  */
 
-rootProject.name = "ejemplo-plugin-gradle-koltin"
-include("plugin")
+rootProject.name = "ejemplo-plugin"
+include("ejemplo-plugin")
+
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+        mavenLocal()
+    }
+}
